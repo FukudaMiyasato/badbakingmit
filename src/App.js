@@ -8,15 +8,23 @@ import AllData from './components/AllData';
 import FormContext from './Context';
 import {BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+import Test from './components/Test';
 
 function App() {
   return (
     <BrowserRouter>
     <NavBar />
-    <div>
-      <FormContext.Provider value="{{users:username:'Edmund', email:'edmund@email.com',password:'Password1'}}">
+    <div className='container'>
+      <FormContext.Provider value={{
+          users:[{
+            username:'Carlo', 
+            email:'carlo@gmail.com',
+            password:'1234567', 
+            balance:10}
+          ]}}>
         <Routes>
-          <Route exact path='/' element={<Home />} />
+          <Route exact path='/' element={<Home/>}/>
+          
           <Route exact path='/createaccount' element={<CreateAccount />} />
           <Route exact path='/deposit' element={<Deposit />} />
           <Route exact path='/withdraw' element={<Withdraw />} />
